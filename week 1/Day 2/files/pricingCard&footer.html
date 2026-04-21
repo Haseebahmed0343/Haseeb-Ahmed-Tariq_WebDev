@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pricingCard&footer</title>
+    <style>
+      .card {
+        width: 280px;
+        padding: 2rem;
+        border: 1px solid #eee;
+        border-radius: 12px;
+        text-align: center;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 50px auto;
+      }
+
+      .plan-name {
+        color: #666;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        margin-bottom: 0.5rem;
+      }
+
+      .price {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .price span {
+        font-size: 1rem;
+        color: #999;
+      }
+
+      .feature-list {
+        list-style: none;
+        padding: 0;
+        margin-bottom: 2rem;
+        color: #444;
+        line-height: 2;
+      }
+
+      .btn {
+        display: block;
+        text-decoration: none;
+        background: #000;
+        color: #fff;
+        padding: 12px;
+        border-radius: 6px;
+        font-weight: 600;
+        transition: opacity 0.2s;
+      }
+
+      .btn:hover {
+        opacity: 0.8;
+      }
+      .main-footer {
+        background-color: #2c3e50;
+        color: #ffffff;
+        padding: 20px;
+      }
+
+      .footer-container { 
+        display: flex;
+        gap: 40px;
+        justify-content: space-between;
+      }
+
+      .footer-col {
+        flex: 1;
+        min-width: 250px; 
+      }
+
+      .footer-logo {
+        font-size: 40px;
+        font-weight: 800;
+        margin-bottom: 15px;
+      }
+
+      .footer-logo span {
+        color: #3498db;
+      }
+
+      .footer-col h3 {
+        margin-bottom: 20px;
+        position: relative;
+      }
+
+      .footer-col ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .footer-col ul li {
+        margin-bottom: 10px;
+      }
+
+      .footer-col ul li a {
+        color: #bdc3c7;
+        text-decoration: none;
+      }
+
+      .footer-col ul li a:hover {
+        color: #ffffff;
+      }
+      .newsletter-form {
+        display: flex;
+        margin-top: 15px;
+      }
+
+      .newsletter-form input {
+        padding: 10px;
+        border: none;
+        border-radius: 4px 0 0 4px;
+        flex: 1;
+        outline: none;
+      }
+
+      .newsletter-form button {
+        padding: 10px 20px;
+        background-color: #3498db;
+        color: white;
+        border: none;
+        border-radius: 0 4px 4px 0;
+        cursor: pointer;
+      }
+
+      .newsletter-form button:hover {
+        background-color: #2980b9;
+      }
+      .footer-bottom {
+        margin: 20px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <p class="plan-name">Basic</p>
+      <h2 class="price">$10<span>/mo</span></h2>
+
+      <ul class="feature-list">
+        <li>Core Features</li>
+        <li>Email Support</li>
+        <li>Single User</li>
+      </ul>
+
+      <a href="#" class="btn">Get Started</a>
+    </div>
+
+    <footer class="main-footer">
+      <div class="footer-container">
+        <div class="footer-col logo-col">
+          <div class="footer-logo">My<span>Website</span></div>
+          <p>Building modern web experiences with speed and precision.</p>
+        </div>
+
+        <div class="footer-col links-col">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col newsletter-col">
+          <h3>Newsletter</h3>
+          <p>Stay updated with our latest news.</p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Enter email" required />
+            <button type="submit">Join</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2026 MyWebsite. All rights reserved.
+      </div>
+    </footer>
+  </body>
+</html>
