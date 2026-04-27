@@ -1,0 +1,121 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #f3f4f6; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #374151;
+}
+
+.game-card {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #111827;
+}
+
+.subtitle {
+    font-size: 0.9rem;
+    color: #6b7280;
+    margin-bottom: 2rem;
+}
+
+.input-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 1.5rem;
+}
+
+input[type="number"] {
+    padding: 12px;
+    font-size: 1.2rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    text-align: center;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+input[type="number"]:focus {
+    border-color: #3b82f6; 
+}
+
+.btn {
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.btn-primary {
+    background-color: #3b82f6;
+    color: white;
+}
+
+.btn-success {
+    background-color: #10b981;
+    color: white;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+.action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.link-btn {
+    text-decoration: none;
+    color: #6b7280;
+    font-size: 0.85rem;
+    padding: 8px;
+    border-radius: 6px;
+    transition: background 0.2s;
+}
+
+.link-btn:hover {
+    background-color: #f9fafb;
+    color: #3b82f6;
+}
+
+.feedback {
+    margin-top: 1.5rem;
+    min-height: 50px;
+}
+
+#message {
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+#attempts {
+    font-size: 0.85rem;
+    color: #9ca3af;
+}
+
+.hidden {
+    display: none;
+}
