@@ -1,0 +1,41 @@
+body {
+  font-family: sans-serif;
+  background: #f7f7f7;
+  padding: 20px;
+}
+.container {
+  max-width: 900px;
+  margin: auto;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+}
+button {
+  padding: 10px 20px;
+  cursor: pointer;
+  background: blue;
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
+button:hover {
+  background: darkblue;
+}
+.card {
+  border-left: 5px solid blue;
+  background: #e9ecef;
+  padding: 15px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
