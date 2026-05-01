@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - MiniStore</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="auth-container">
+      <h2>Welcome Back</h2>
+      <div id="login-message"></div>
+      <input type="email" id="email" placeholder="enter your email" />
+      <input type="password" id="pass" placeholder="enter your password" />
+
+      <button
+        class="btn"
+        style="width: 100%; margin-top: 10px"
+        onclick="handleLogin()"
+      >
+        Login
+      </button>
+
+      <p>
+        Don't have an account?
+        <a href="signup.html">Sign Up</a>
+      </p>
+    </div>
+    <script>
+      function handleLogin() {
+        const msgBox = document.getElementById("login-message");
+        const emailInput = document.getElementById("email").value.trim();
+        const passInput = document.getElementById("pass").value.trim();
+        const showMsg = (text, isError = true) => {
+          msgBox.innerText = text;
+          msgBox.style.display = "block";
+
+          if (isError) {
+            msgBox.style.backgroundColor = "#fee2e2";
+            msgBox.style.color = "#dc2626";
+            msgBox.style.borderColor = "#fecaca";
+          } else {
+            msgBox.style.backgroundColor = "#dcfce7";
+            msgBox.style.color = "#16a34a";
+            msgBox.style.borderColor = "#bbf7d0";
+          }
+        };
+
+        if (!emailInput || !passInput) {
+          showMsg("Please enter both email and password.");
+          return;
+        }
+
+        const storedUser = JSON.parse(localStorage.getItem("userData"));
+        if (!storedUser) {
+          showMsg("No account found. Please sign up first.");
+          return;
+        }
+
+        if (emailInput === storedUser.email && passInput === storedUser.pass) {
+          localStorage.setItem("isLoggedIn", "true");
+          showMsg("Login successful! Redirecting...", false);
+
+          setTimeout(() => {
+            window.location.href = "index.html";
+          }, 1200);
+        } else {
+          showMsg("Invalid email or password. Please try again.");
+        }
+      }
+
+      if (localStorage.getItem("isLoggedIn") === "true") {
+        window.location.href = "index.html";
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up - MiniStore</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <body>
+      <div class="auth-container">
+        <h2>Create Account</h2>
+        <div id="error-msg"></div>
+        <input type="text" id="name" placeholder="Full Name" />
+        <input type="email" id="email" placeholder="Email Address" />
+        <input type="password" id="pass" placeholder="Password" />
+        <button class="btn" style="width: 100%; margin-top: 10px;" onclick="handleSignup()">Sign Up</button>
+        <p>
+          Already have an account?
+          <a href="./login.html">Login</a>
+        </p>
+      </div>
+
+      <script>
+        function handleSignup() {
+          const errorDiv = document.getElementById("error-msg");
+          const name = document.getElementById("name").value.trim();
+          const email = document.getElementById("email").value.trim();
+          const pass = document.getElementById("pass").value.trim();
+
+          errorDiv.style.display = "none";
+          errorDiv.innerText = "";
+
+          if (!name || !email || !pass) {
+            errorDiv.innerText = "Please fill in all fields.";
+            errorDiv.style.display = "block";
+            return;
+          }
+
+          if (!email.includes("@")) {
+            errorDiv.innerText = "Please enter a valid email address.";
+            errorDiv.style.display = "block";
+            return;
+          }
+
+          const user = { name, email, pass };
+          localStorage.setItem("userData", JSON.stringify(user));
+
+          errorDiv.style.color = "#16a34a";
+          errorDiv.style.background = "#dcfce7";
+          errorDiv.style.borderColor = "#bbf7d0";
+          errorDiv.innerText = "Account created! Redirecting...";
+          errorDiv.style.display = "block";
+
+          setTimeout(() => {
+            window.location.href = "login.html";
+          }, 1200);
+        }
+      </script>
+    </body>
+  </body>
+</html>

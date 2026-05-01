@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Checkout - MiniStore</title>
+  </head>
+  <body>
+    <nav>
+      <a href="index.html" class="logo">MiniStore</a>
+      <div class="nav-links">
+        <a href="index.html">Back to Store</a>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div>
+        <h2>Checkout</h2>
+        <div
+          id="order-summary"
+          style="
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 1px solid #e2e8f0;
+          "
+        >
+          <h4 style="border-bottom: 1px solid #eee; padding-bottom: 10px">
+            Order Summary
+          </h4>
+          <div id="summary-items" style="margin-top: 10px"></div>
+          <hr style="margin: 15px 0; border: 0; border-top: 1px solid #eee" />
+          <h3>Total Amount: $<span id="checkout-total">0</span></h3>
+        </div>
+
+        <form
+          id="checkout-form"
+          class="auth-container"
+          style="max-width: 100%; margin: 0"
+        >
+          <h3>Shipping Information</h3>
+          <input type="text" id="cust-name" placeholder="Full Name" required />
+          <input
+            type="text"
+            id="cust-address"
+            placeholder="Shipping Address"
+            required
+          />
+          <input
+            type="tel"
+            id="cust-phone"
+            placeholder="Phone Number"
+            required
+          />
+
+          <button
+            type="submit"
+            class="btn"
+            style="width: 100%; margin-top: 20px"
+          >
+            Place Order
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      if (!localStorage.getItem("isLoggedIn"))
+        window.location.href = "login.html";
+
+      function loadSummary() {
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        const summaryDiv = document.getElementById("summary-items");
+        const totalSpan = document.getElementById("checkout-total");
+
+        if (cart.length === 0) {
+          alert("Your cart is empty!");
+          window.location.href = "index.html";
+          return;
+        }
+
+        let total = 0;
+        summaryDiv.innerHTML = cart
+          .map((item) => {
+            total += item.price * item.quantity;
+            return `<div style="display:flex; justify-content:space-between; margin-bottom:5px;">
+                            <span>${item.name} (x${item.quantity})</span>
+                            <span>$${item.price * item.quantity}</span>
+                        </div>`;
+          })
+          .join("");
+
+        totalSpan.innerText = total;
+      }
+
+      document
+        .getElementById("checkout-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const name = document.getElementById("cust-name").value;
+
+          alert(`Thank you, ${name}! Your order has been placed successfully.`);
+
+          localStorage.removeItem("cart");
+
+          window.location.href = "index.html";
+        });
+
+      loadSummary();
+    </script>
+  </body>
+</html>
